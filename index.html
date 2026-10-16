@@ -50,17 +50,17 @@
   </section>
 
   <!-- NAVIGATION BAR -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#090D16]/80 border-b border-white/10 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
+  <header class="md:sticky top-0 z-50 backdrop-blur-xl bg-[#090D16]/80 border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between gap-8">
       
       <!-- Brand Logo & Name -->
-      <a href="#home" class="flex items-center gap-3 group shrink-0">
+      <a href="#home" class="flex items-center gap-2 md:gap-3 group shrink-0">
         <div class="relative">
-          <img src="assets/chatmate-logo.png" alt="ChatMate Logo" class="w-11 h-11 rounded-2xl object-cover shadow-lg shadow-rose-500/20 group-hover:scale-105 transition-transform duration-300">
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-rose-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-40 transition-opacity blur-xs -z-10"></div>
+          <img src="assets/chatmate-logo.png" alt="ChatMate Logo" class="w-9 h-9 md:w-11 md:h-11 rounded-xl md:rounded-2xl object-cover shadow-lg shadow-rose-500/20 group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-rose-500 to-purple-600 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-40 transition-opacity blur-xs -z-10"></div>
         </div>
         <div class="flex flex-col">
-          <span class="text-2xl font-black tracking-tight text-white flex items-center gap-0.5">
+          <span class="text-xl md:text-2xl font-black tracking-tight text-white flex items-center gap-0.5">
             Chat<span class="text-gradient-magenta">Mate</span>
           </span>
         </div>
@@ -88,10 +88,12 @@
           <span>Download APK</span>
         </a>
 
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        <!-- Desktop Search/Account Icon Placeholder (Optional, just for balance) -->
+        <div class="hidden md:block w-px h-6 bg-white/10 mx-2"></div>
+        
+        <button class="md:hidden p-2 rounded-xl bg-white/5 text-slate-300">
+           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
         </button>
       </div>
@@ -825,6 +827,41 @@
 
     </div>
   </div>
+
+  <!-- MOBILE BOTTOM NAVIGATION (Pattern 1) -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#090D16]/90 backdrop-blur-2xl border-t border-white/10 px-4 pb-safe h-16 flex items-center justify-around shadow-[0_-8px_24px_rgba(0,0,0,0.5)]">
+    <a href="#home" class="flex flex-col items-center gap-1 group">
+      <svg class="w-5 h-5 text-rose-400" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      <span class="text-[10px] font-bold text-rose-400 uppercase tracking-tighter">Home</span>
+    </a>
+    <a href="#features" class="flex flex-col items-center gap-1 group opacity-60 hover:opacity-100 transition-opacity">
+      <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z"/>
+      </svg>
+      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Features</span>
+    </a>
+    <a href="https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk" 
+       download="ChatMate.apk"
+       class="flex flex-col items-center justify-center -translate-y-4 bg-gradient-primary w-14 h-14 rounded-full shadow-lg shadow-rose-500/40 border-4 border-[#090D16] group active:scale-95 transition-transform">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+      </svg>
+    </a>
+    <a href="#community" class="flex flex-col items-center gap-1 group opacity-60 hover:opacity-100 transition-opacity">
+      <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+      </svg>
+      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Community</span>
+    </a>
+    <a href="#faq" class="flex flex-col items-center gap-1 group opacity-60 hover:opacity-100 transition-opacity">
+      <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Help</span>
+    </a>
+  </nav>
 
 </body>
 </html>

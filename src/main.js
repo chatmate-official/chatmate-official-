@@ -177,4 +177,41 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Mobile Bottom Nav Scroll Spy
+  const mobileNavLinks = document.querySelectorAll('nav.md\\:hidden a');
+  const sections = ['home', 'features', 'community', 'faq'];
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        mobileNavLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === `#${id}`) {
+            link.classList.remove('opacity-60');
+            link.querySelector('svg').classList.replace('text-slate-400', 'text-rose-400');
+            link.querySelector('span').classList.replace('text-slate-400', 'text-rose-400');
+          } else if (href && href.startsWith('#')) {
+            link.classList.add('opacity-60');
+            const svg = link.querySelector('svg');
+            const span = link.querySelector('span');
+            if (svg) svg.classList.replace('text-rose-400', 'text-slate-400');
+            if (span) span.classList.replace('text-rose-400', 'text-slate-400');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
 });

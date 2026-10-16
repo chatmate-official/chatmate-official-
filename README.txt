@@ -1,18 +1,24 @@
-CHAT MATE WEBSITE
+CHAT MATE WEBSITE (Vite + Tailwind CSS)
 
-Files:
-- index.html: mobile-responsive landing website
-- assets/chatmate-logo.jpg: your supplied Chat Mate logo
+Current Setup:
+This website now uses Vite for lightning-fast performance and Tailwind CSS for a premium design. 
 
-APK direct download button:
-https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/app-release.apk
+FILES TO DEPLOY:
+To make the GitHub website look exactly like the preview, you must deploy the "dist" folder.
 
-FREE PUBLISH USING GITHUB PAGES
-1. Create a repository at https://github.com/new
-2. Upload index.html and the complete assets folder to the repository root.
-3. Open repository Settings > Pages.
-4. Select Deploy from a branch, branch main, folder /(root), then Save.
-5. Wait for publishing and use the Visit site link shown on the Pages settings screen.
+STEPS TO DEPLOY TO GITHUB PAGES:
+1. Run the build command in the terminal:
+   npm run build
+2. This will create a folder named "dist".
+3. Upload the CONTENTS of the "dist" folder (not the folder itself) to your GitHub repository.
+4. Go to Settings > Pages and select the "main" branch and "/(root)" folder.
 
-The displayed community numbers and location counts are sample/mock values, not live data.
-The website is static and does not connect to a backend.
+Alternatively, for Automatic Deployment:
+- Use GitHub Actions for Vite (Recommended).
+- Create a file at .github/workflows/deploy.yml with a Vite deployment template.
+
+APK Download:
+The "Download" buttons are correctly linked to:
+https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk
+
+Note: The community numbers and user locations are interactive sample data for presentation purposes.
