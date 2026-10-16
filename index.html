@@ -1,393 +1,830 @@
-
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#09091b">
-<meta name="description" content="Chat Mate — Meet people. Start chatting.">
-<title>Chat Mate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090D16">
+  <meta name="description" content="ChatMate — Find Your Real Spark. Premium dating app for Android users in India. Live video chat, voice rooms, verified profiles, and safe dating.">
+  <title>ChatMate — Find Your Real Spark | Premium Dating App</title>
 
-<link rel="icon" href="assets/chatmate-logo.png" type="image/png">
+  <!-- OpenGraph & Social Metadata -->
+  <meta property="og:title" content="ChatMate — Find Your Real Spark">
+  <meta property="og:description" content="Meet real people, start meaningful conversations, and create unforgettable connections with ChatMate.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/chatmate-logo.png">
 
-<style>
-:root {
-  color-scheme: dark;
-  --bg: #09091b;
-  --muted: #b8b8d0;
-  --purple: #7938ff;
-  --blue: #292eff;
-  --white: #fff;
-}
+  <!-- Favicon -->
+  <link rel="icon" href="assets/chatmate-logo.png" type="image/png">
 
-* { box-sizing: border-box; }
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  color: var(--white);
-  font-family: Arial, sans-serif;
-  background:
-    radial-gradient(ellipse at 50% -15%, #5620a8 0, transparent 42%),
-    radial-gradient(ellipse at 90% 50%, #171b7d 0, transparent 38%),
-    var(--bg);
-}
-
-.wrap {
-  width: min(1000px, 91%);
-  margin: auto;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 24px 0;
-}
-
-.logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 15px;
-  object-fit: cover;
-}
-
-.brand {
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-
-.hero {
-  text-align: center;
-  padding: 54px 0 45px;
-}
-
-.hero-logo {
-  width: 118px;
-  height: 118px;
-  border-radius: 31px;
-  object-fit: cover;
-  margin-bottom: 22px;
-  box-shadow: 0 15px 55px #6d31ff55;
-}
-
-h1 {
-  font-size: clamp(2.6rem, 8vw, 5rem);
-  line-height: 1.02;
-  letter-spacing: -0.065em;
-  margin: 0 0 18px;
-}
-
-.gradient {
-  background: linear-gradient(100deg, #e4d5ff, #9e82ff 48%, #5d7aff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.tagline {
-  font-size: clamp(1rem, 2.6vw, 1.2rem);
-  color: var(--muted);
-  margin: 0 auto 30px;
-  max-width: 470px;
-  line-height: 1.6;
-}
-
-.download {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 11px;
-  text-decoration: none;
-  color: white;
-  font-size: 1.04rem;
-  font-weight: 800;
-  padding: 17px 25px;
-  border-radius: 16px;
-  background: linear-gradient(105deg, #8038ff, #3b40ff);
-  box-shadow: 0 12px 38px #533bff55;
-}
-
-.download:hover {
-  filter: brightness(1.1);
-}
-
-.small-note {
-  font-size: 0.8rem;
-  color: #9898b8;
-  margin-top: 15px;
-}
-
-.stats {
-  padding: 34px 0 65px;
-}
-
-.stats-title {
-  text-align: center;
-  font-size: 1.35rem;
-  margin: 0 0 20px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.stat {
-  border: 1px solid #ffffff16;
-  background: linear-gradient(145deg, #ffffff10, #ffffff05);
-  border-radius: 20px;
-  padding: 20px 15px;
-  text-align: center;
-}
-
-.ico {
-  display: grid;
-  place-items: center;
-  margin: 0 auto 12px;
-  width: 43px;
-  height: 43px;
-  border-radius: 14px;
-  background: #7548ff24;
-  color: #c6b3ff;
-  font-size: 1.4rem;
-}
-
-.number {
-  font-size: clamp(1.35rem, 3.6vw, 2rem);
-  font-weight: 850;
-}
-
-.label {
-  font-size: 0.86rem;
-  color: var(--muted);
-  margin-top: 5px;
-}
-
-.locations {
-  margin-top: 14px;
-  border: 1px solid #ffffff16;
-  background: #ffffff08;
-  border-radius: 20px;
-  padding: 20px;
-}
-
-.locations h2 {
-  font-size: 1rem;
-  margin: 0 0 15px;
-}
-
-.location-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 14px 0;
-}
-
-.pin {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: #ffffff10;
-  color: #bca6ff;
-}
-
-.locname {
-  flex: 1;
-  font-size: 0.9rem;
-}
-
-.bar {
-  height: 6px;
-  background: #ffffff12;
-  border-radius: 99px;
-  overflow: hidden;
-  margin-top: 6px;
-}
-
-.fill {
-  height: 100%;
-  border-radius: 99px;
-  background: linear-gradient(90deg, #8b45ff, #444cff);
-}
-
-.count {
-  font-size: 0.86rem;
-  color: #d8d5ff;
-  font-weight: 700;
-}
-
-footer {
-  border-top: 1px solid #ffffff12;
-  text-align: center;
-  padding: 23px 0 30px;
-  color: #8e8eac;
-  font-size: 0.82rem;
-}
-
-@media (max-width: 700px) {
-  .hero { padding: 35px 0 28px; }
-  .stats { padding: 28px 0 44px; }
-  .stat { padding: 17px 10px; }
-  .locations { padding: 17px; }
-  .hero-logo {
-    width: 100px;
-    height: 100px;
-  }
-}
-</style>
+  <script type="module" src="/src/main.js"></script>
 </head>
 
-<body>
+<body class="bg-[#090D16] text-white selection:bg-rose-500 selection:text-white relative min-h-screen font-sans antialiased overflow-x-hidden">
 
-<header class="wrap">
-  <img
-    class="logo"
-    src="assets/chatmate-logo.png"
-    alt="Chat Mate logo"
-  >
-  <div class="brand">Chat Mate</div>
-</header>
+  <!-- Background Ambient Glow Blobs -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-[#241044]/60 via-[#7C3AED]/20 to-transparent blur-[140px] pointer-events-none -z-10 animate-pulse-glow"></div>
+  <div class="fixed bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-t from-[#F43F5E]/15 via-[#D946EF]/10 to-transparent blur-[160px] pointer-events-none -z-10"></div>
+  <div class="fixed top-1/3 left-0 w-[500px] h-[500px] bg-gradient-to-r from-[#4338FF]/10 to-transparent blur-[150px] pointer-events-none -z-10"></div>
 
-<main class="wrap">
-
-  <section class="hero">
-
-    <img
-      class="hero-logo"
-      src="assets/chatmate-logo.png"
-      alt="Chat Mate app icon"
-    >
-
-    <h1>
-      Meet people.<br>
-      <span class="gradient">Start chatting.</span>
-    </h1>
-
-    <p class="tagline">
-      A simple place to discover people and start conversations.
-    </p>
-
-    <a
-      class="download"
-      href="https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk"
-      download="ChatMate.apk"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg width="22" height="22" viewBox="0 0 24 24"
-           fill="none" aria-hidden="true">
-        <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"
-              stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Download for Android
-    </a>
-
-    <div class="small-note">
-      Android app · Direct APK download
-    </div>
-
-  </section>
-
-  <section class="stats">
-
-    <h2 class="stats-title">Chat Mate Community</h2>
-
-    <div class="grid">
-
-      <div class="stat">
-        <div class="ico">♧</div>
-        <div class="number">1,248</div>
-        <div class="label">Online Users</div>
-      </div>
-
-      <div class="stat">
-        <div class="ico">↓</div>
-        <div class="number">8,520</div>
-        <div class="label">Total Downloads</div>
-      </div>
-
-      <div class="stat">
-        <div class="ico">♙</div>
-        <div class="number">6,340</div>
-        <div class="label">Total Users</div>
-      </div>
-
-      <div class="stat">
-        <div class="ico">⌖</div>
-        <div class="number">24</div>
-        <div class="label">Locations</div>
-      </div>
-
-    </div>
-
-    <div class="locations">
-
-      <h2>Users by Location</h2>
-
-      <div class="location-row">
-        <div class="pin">⌖</div>
-        <div class="locname">
-          Tamil Nadu
-          <div class="bar">
-            <div class="fill" style="width:82%"></div>
-          </div>
-        </div>
-        <div class="count">2,180</div>
-      </div>
-
-      <div class="location-row">
-        <div class="pin">⌖</div>
-        <div class="locname">
-          Maharashtra
-          <div class="bar">
-            <div class="fill" style="width:67%"></div>
-          </div>
-        </div>
-        <div class="count">1,760</div>
-      </div>
-
-      <div class="location-row">
-        <div class="pin">⌖</div>
-        <div class="locname">
-          Karnataka
-          <div class="bar">
-            <div class="fill" style="width:54%"></div>
-          </div>
-        </div>
-        <div class="count">1,420</div>
-      </div>
-
-      <div class="location-row">
-        <div class="pin">⌖</div>
-        <div class="locname">
-          Delhi
-          <div class="bar">
-            <div class="fill" style="width:39%"></div>
-          </div>
-        </div>
-        <div class="count">980</div>
-      </div>
-
+  <!-- TOP HEADER BANNER SECTION -->
+  <section class="relative w-full overflow-hidden border-b border-white/5">
+    <div class="max-w-[1920px] mx-auto group cursor-pointer relative">
+      <img src="assets/top-header-banner.png" 
+           alt="ChatMate Official Banner" 
+           class="w-full h-auto object-cover max-h-[280px] sm:max-h-[400px] transition-transform duration-700 group-hover:scale-[1.02]"
+           loading="eager">
+      
+      <!-- Subtle Overlay for Premium Look -->
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#090D16]/40 pointer-events-none"></div>
+      
+      <!-- Optional Banner CTA or Text could go here, but keeping it as requested -->
+      <a href="https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk" 
+         class="absolute inset-0 z-10" 
+         aria-label="Download ChatMate App"></a>
     </div>
   </section>
 
-</main>
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#090D16]/80 border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
+      
+      <!-- Brand Logo & Name -->
+      <a href="#home" class="flex items-center gap-3 group shrink-0">
+        <div class="relative">
+          <img src="assets/chatmate-logo.png" alt="ChatMate Logo" class="w-11 h-11 rounded-2xl object-cover shadow-lg shadow-rose-500/20 group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-rose-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-40 transition-opacity blur-xs -z-10"></div>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-2xl font-black tracking-tight text-white flex items-center gap-0.5">
+            Chat<span class="text-gradient-magenta">Mate</span>
+          </span>
+        </div>
+      </a>
 
-<footer class="wrap">
-  © <span id="year"></span> Chat Mate
-</footer>
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#home" class="hover:text-rose-400 transition-colors whitespace-nowrap">Home</a>
+        <a href="#features" class="hover:text-rose-400 transition-colors whitespace-nowrap">Features</a>
+        <a href="#community" class="hover:text-rose-400 transition-colors whitespace-nowrap">Community</a>
+        <a href="#locations" class="hover:text-rose-400 transition-colors whitespace-nowrap">Locations</a>
+        <a href="#faq" class="hover:text-rose-400 transition-colors whitespace-nowrap">FAQ</a>
+      </nav>
 
-<script>
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-</script>
+      <!-- Right CTA & Mobile Toggle -->
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk"
+           download="ChatMate.apk"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-primary shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          <span>Download APK</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobile-nav" class="fixed inset-0 z-50 bg-[#090D16]/95 backdrop-blur-2xl hidden flex-col justify-between p-6 md:hidden border-b border-white/10">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <a href="#home" class="flex items-center gap-3">
+          <img src="assets/chatmate-logo.png" alt="ChatMate Logo" class="w-10 h-10 rounded-xl object-cover">
+          <span class="text-2xl font-black text-white">Chat<span class="text-gradient-magenta">Mate</span></span>
+        </a>
+        <button id="close-menu-btn" class="p-2 rounded-xl bg-white/10 text-slate-300 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-6 pt-8 text-lg font-semibold text-slate-200">
+        <a href="#home" class="hover:text-rose-400 transition-colors">Home</a>
+        <a href="#features" class="hover:text-rose-400 transition-colors">Features</a>
+        <a href="#community" class="hover:text-rose-400 transition-colors">Community</a>
+        <a href="#locations" class="hover:text-rose-400 transition-colors">Locations</a>
+        <a href="#faq" class="hover:text-rose-400 transition-colors">FAQ</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-white/10">
+      <a href="https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk"
+         download="ChatMate.apk"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="w-full flex items-center justify-center gap-3 py-4 rounded-xl font-bold text-sm text-white bg-gradient-primary shadow-lg shadow-rose-500/30">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        <span>Download for Android (APK)</span>
+      </a>
+    </div>
+  </div>
+
+  <main id="home">
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Left Column: Copy & Actions -->
+          <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+            
+            <!-- Category Tagline Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-rose-500/30 text-xs font-semibold text-rose-300 shadow-inner">
+              <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+              <span>India’s Premium Dating & Live Social App</span>
+              <span class="text-white/30">|</span>
+              <span class="text-purple-300 font-medium">Find Your Real Spark</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] text-white">
+              Find Your <br class="hidden sm:inline">
+              <span class="text-gradient-pink-purple">Real Spark.</span>
+            </h1>
+
+            <!-- Supporting Paragraph -->
+            <p class="text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Meet real people, start meaningful conversations and create unforgettable connections with instant HD video chat, voice rooms, and 100% verified profile discovery.
+            </p>
+
+            <!-- Feature Highlight Pills -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
+              
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-slate-200">
+                <span class="text-rose-400">📹</span>
+                <span>Live Video Chat</span>
+              </div>
+
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-slate-200">
+                <span class="text-purple-400">🎙️</span>
+                <span>Voice Rooms</span>
+              </div>
+
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-slate-200">
+                <span class="text-pink-400">✨</span>
+                <span>Meet New People</span>
+              </div>
+
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-slate-200">
+                <span class="text-emerald-400">🛡️</span>
+                <span>Safe & Private</span>
+              </div>
+
+            </div>
+
+            <!-- Download CTA Area -->
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk"
+                 download="ChatMate.apk"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="w-full sm:w-auto px-8 py-4 rounded-2xl font-extrabold text-base text-white bg-gradient-primary shadow-xl shadow-rose-500/30 hover:shadow-rose-500/50 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 group">
+                <svg class="w-6 h-6 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                <div class="text-left leading-tight">
+                  <span class="block text-[10px] uppercase tracking-wider text-rose-200 font-bold">Direct APK Download</span>
+                  <span class="block text-base">Download for Android</span>
+                </div>
+              </a>
+
+              <div class="text-xs text-slate-400 text-center sm:text-left space-y-1">
+                <div class="flex items-center justify-center sm:justify-start gap-1.5 text-emerald-400 font-semibold">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>Free • Safe • Verified APK</span>
+                </div>
+                <p class="text-slate-500">Supports Android 7.0 & above</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Glassmorphism App Showcase & Couple Visual -->
+          <div class="lg:col-span-5 relative flex justify-center">
+            
+            <!-- Glowing aura backdrop -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-rose-500/30 via-purple-600/30 to-blue-600/20 blur-3xl rounded-full -z-10 animate-pulse-glow"></div>
+
+            <!-- Phone Glass Showcase Container -->
+            <div class="relative w-full max-w-sm sm:max-w-md mx-auto">
+              
+              <!-- Phone Frame -->
+              <div class="glass-card rounded-[40px] p-4 sm:p-5 border-2 border-white/20 shadow-2xl shadow-purple-950/80 relative overflow-hidden">
+                
+                <!-- Phone Top Bar Notch & Header -->
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                  <div class="flex items-center gap-2">
+                    <img src="assets/chatmate-logo.png" alt="ChatMate App" class="w-7 h-7 rounded-lg">
+                    <span class="text-sm font-bold text-white">ChatMate <span class="text-rose-400 font-extrabold text-xs">LIVE</span></span>
+                  </div>
+                  <div class="flex items-center gap-1.5 text-xs text-rose-400 font-semibold bg-rose-500/10 px-2.5 py-1 rounded-full border border-rose-500/20">
+                    <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                    <span>1,248 Online</span>
+                  </div>
+                </div>
+
+                <!-- Profile Card Glass Mockup inside Phone -->
+                <div class="relative rounded-3xl overflow-hidden bg-gradient-to-b from-purple-900/60 via-[#1A0B2E] to-[#090D16] p-5 border border-white/15 space-y-4">
+                  
+                  <!-- Match Header -->
+                  <div class="flex justify-between items-start">
+                    <div class="space-y-0.5">
+                      <div class="flex items-center gap-2">
+                        <h3 class="text-xl font-black text-white">Priya, 24</h3>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/30 font-bold">✓ Verified</span>
+                      </div>
+                      <p class="text-xs text-slate-300 flex items-center gap-1">
+                        <span class="text-rose-400">📍</span> Chennai, Tamil Nadu
+                      </p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-rose-500 to-magenta-600 text-white text-xs font-black px-3 py-1.5 rounded-2xl shadow-lg shadow-rose-500/40">
+                      98% Match
+                    </div>
+                  </div>
+
+                  <!-- Interactive Profile Tags -->
+                  <div class="flex flex-wrap gap-1.5 pt-1">
+                    <span class="text-[11px] bg-white/10 text-slate-200 px-2.5 py-1 rounded-lg border border-white/10">Music & Travel</span>
+                    <span class="text-[11px] bg-white/10 text-slate-200 px-2.5 py-1 rounded-lg border border-white/10">Coffee Lover</span>
+                    <span class="text-[11px] bg-rose-500/20 text-rose-300 px-2.5 py-1 rounded-lg border border-rose-500/30">Tamil & English</span>
+                  </div>
+
+                  <!-- Mock Video Call Action Bar inside mockup -->
+                  <div class="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2 text-xs text-slate-300">
+                      <span class="p-2 rounded-full bg-emerald-500/20 text-emerald-400">📹</span>
+                      <span class="font-medium">Ready for HD Video Chat</span>
+                    </div>
+                    <button class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-500 to-purple-600 text-white font-bold text-xs shadow-md">
+                      Connect
+                    </button>
+                  </div>
+
+                </div>
+
+                <!-- Floating Accent Glass Badge 1: Live Voice Room -->
+                <div class="absolute -bottom-2 -left-3 glass-panel p-3 rounded-2xl border border-rose-500/40 shadow-xl flex items-center gap-3 animate-float-slow max-w-[210px]">
+                  <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-500 to-purple-600 flex items-center justify-center text-white text-base font-bold shrink-0 shadow-md">
+                    🎙️
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white leading-tight">Voice Room Active</div>
+                    <div class="text-[10px] text-slate-300">Join 12 friends in Tamil</div>
+                  </div>
+                </div>
+
+                <!-- Floating Accent Glass Badge 2: Instant Match Notification -->
+                <div class="absolute -top-3 -right-3 glass-panel p-3 rounded-2xl border border-purple-500/40 shadow-xl flex items-center gap-3 animate-float-reverse max-w-[200px]">
+                  <div class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-base font-bold shrink-0">
+                    💖
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white leading-tight">New Match!</div>
+                    <div class="text-[10px] text-emerald-300">Ananya liked your profile</div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMOTIONAL SHOWCASE BANNER SECTION -->
+    <section class="py-12 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass-panel p-3 sm:p-5 rounded-[32px] sm:rounded-[40px] border border-rose-500/30 shadow-2xl shadow-rose-950/60 relative group overflow-hidden transition-all duration-500 hover:border-rose-500/50">
+          
+          <!-- Background Ambient Glow -->
+          <div class="absolute inset-0 bg-gradient-to-r from-rose-500/15 via-purple-600/15 to-blue-600/15 blur-2xl pointer-events-none"></div>
+
+          <!-- Banner Image Container -->
+          <div class="relative rounded-2xl sm:rounded-[32px] overflow-hidden border border-white/10 group">
+            <img src="assets/promo-banner.png" 
+                 alt="ChatMate Promotional Showcase Banner — Meet Real People, Live Video Chat & Audio Rooms" 
+                 class="w-full h-auto object-cover rounded-2xl sm:rounded-[32px] shadow-2xl transition-transform duration-700 group-hover:scale-[1.01]"
+                 loading="eager">
+            
+            <!-- Subtle Image Gradient Overlay for Content Depth -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#090D16]/80 via-transparent to-transparent opacity-60 pointer-events-none"></div>
+
+            <!-- Floating Direct Download Badge Overlay -->
+            <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 hidden sm:flex items-center gap-3 glass-panel px-5 py-3 rounded-2xl border border-rose-500/40 shadow-2xl backdrop-blur-xl">
+              <div class="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center text-white font-bold shrink-0 shadow-lg">
+                🔥
+              </div>
+              <div class="text-left">
+                <div class="text-xs font-black text-white">Experience ChatMate Live</div>
+                <div class="text-[11px] text-rose-300 font-medium">Download Android APK</div>
+              </div>
+              <a href="https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk"
+                 download="ChatMate.apk"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="ml-2 px-4 py-2 rounded-xl bg-white text-slate-950 hover:bg-rose-100 font-extrabold text-xs transition-all shadow-md">
+                Get APK
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY SECTION: GLASSMORPHISM STATS -->
+    <section id="community" class="py-16 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <div class="text-xs font-bold uppercase tracking-widest text-rose-400">Real-Time Community</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Trusted by Thousands Across <span class="text-gradient-magenta">India</span>
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Connecting real individuals every second with transparent, verified statistics.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          
+          <!-- Stat Card 1 -->
+          <div class="glass-card p-6 rounded-3xl text-center space-y-3 relative group transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 mx-auto rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xl font-black shadow-inner">
+              ⚡
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-black tracking-tight text-white tabular-nums flex items-center justify-center gap-1.5">
+                <span>1,248</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              </div>
+              <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Online Users</div>
+            </div>
+            <div class="text-[11px] text-slate-300">Active right now in live chat</div>
+          </div>
+
+          <!-- Stat Card 2 -->
+          <div class="glass-card p-6 rounded-3xl text-center space-y-3 relative group transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 mx-auto rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl font-black shadow-inner">
+              📥
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-black tracking-tight text-white tabular-nums">
+                8,520+
+              </div>
+              <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Downloads</div>
+            </div>
+            <div class="text-[11px] text-slate-300">Verified APK installs</div>
+          </div>
+
+          <!-- Stat Card 3 -->
+          <div class="glass-card p-6 rounded-3xl text-center space-y-3 relative group transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 mx-auto rounded-2xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 text-xl font-black shadow-inner">
+              👥
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-black tracking-tight text-white tabular-nums">
+                6,340+
+              </div>
+              <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Users</div>
+            </div>
+            <div class="text-[11px] text-slate-300">Registered member profiles</div>
+          </div>
+
+          <!-- Stat Card 4 -->
+          <div class="glass-card p-6 rounded-3xl text-center space-y-3 relative group transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl font-black shadow-inner">
+              📍
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-black tracking-tight text-white tabular-nums">
+                24
+              </div>
+              <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Active Locations</div>
+            </div>
+            <div class="text-[11px] text-slate-300">States & major hubs</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- USERS BY LOCATION SECTION -->
+    <section id="locations" class="py-16 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="glass-panel p-6 sm:p-10 rounded-[32px] border border-white/10 space-y-8">
+          
+          <!-- Header & Region Filter Tabs -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-white/10">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-rose-400">Location Insights</div>
+              <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Users by Location</h2>
+              <p class="text-slate-400 text-xs sm:text-sm mt-1">Geographic distribution of active ChatMate members across India</p>
+            </div>
+
+            <!-- Region Filter Tabs -->
+            <div class="flex items-center gap-2 p-1 bg-white/5 rounded-2xl border border-white/10 shrink-0">
+              <button data-region="all" class="region-tab px-4 py-2 rounded-xl text-xs font-bold transition-all bg-rose-500/20 text-rose-400 border border-rose-500/40">
+                All Regions
+              </button>
+              <button data-region="south" class="region-tab px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white/5 text-slate-400 border border-white/10 hover:text-white">
+                South India
+              </button>
+              <button data-region="north" class="region-tab px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white/5 text-slate-400 border border-white/10 hover:text-white">
+                North & West
+              </button>
+            </div>
+          </div>
+
+          <!-- Location Progress Bars Grid -->
+          <div class="grid md:grid-cols-2 gap-6">
+            
+            <!-- Location 1: Tamil Nadu -->
+            <div class="location-row glass-card p-4 rounded-2xl border border-white/10 flex items-center gap-4" data-region="south">
+              <div class="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400 font-bold shrink-0">
+                📍
+              </div>
+              <div class="flex-1 space-y-2">
+                <div class="flex justify-between text-xs font-bold">
+                  <span class="text-white text-sm">Tamil Nadu</span>
+                  <span class="text-rose-400 tabular-nums">2,180 users (82%)</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-rose-500 to-purple-600 rounded-full" style="width: 82%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location 2: Maharashtra -->
+            <div class="location-row glass-card p-4 rounded-2xl border border-white/10 flex items-center gap-4" data-region="north">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold shrink-0">
+                📍
+              </div>
+              <div class="flex-1 space-y-2">
+                <div class="flex justify-between text-xs font-bold">
+                  <span class="text-white text-sm">Maharashtra</span>
+                  <span class="text-purple-400 tabular-nums">1,760 users (67%)</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-purple-500 to-magenta-500 rounded-full" style="width: 67%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location 3: Karnataka -->
+            <div class="location-row glass-card p-4 rounded-2xl border border-white/10 flex items-center gap-4" data-region="south">
+              <div class="w-10 h-10 rounded-xl bg-pink-500/20 border border-pink-500/40 flex items-center justify-center text-pink-400 font-bold shrink-0">
+                📍
+              </div>
+              <div class="flex-1 space-y-2">
+                <div class="flex justify-between text-xs font-bold">
+                  <span class="text-white text-sm">Karnataka</span>
+                  <span class="text-pink-400 tabular-nums">1,420 users (54%)</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full" style="width: 54%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location 4: Delhi -->
+            <div class="location-row glass-card p-4 rounded-2xl border border-white/10 flex items-center gap-4" data-region="north">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-bold shrink-0">
+                📍
+              </div>
+              <div class="flex-1 space-y-2">
+                <div class="flex justify-between text-xs font-bold">
+                  <span class="text-white text-sm">Delhi NCR</span>
+                  <span class="text-blue-400 tabular-nums">980 users (39%)</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" style="width: 39%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location 5: Kerala -->
+            <div class="location-row glass-card p-4 rounded-2xl border border-white/10 flex items-center gap-4" data-region="south">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
+                📍
+              </div>
+              <div class="flex-1 space-y-2">
+                <div class="flex justify-between text-xs font-bold">
+                  <span class="text-white text-sm">Kerala</span>
+                  <span class="text-emerald-400 tabular-nums">850 users (34%)</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" style="width: 34%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location 6: Telangana -->
+            <div class="location-row glass-card p-4 rounded-2xl border border-white/10 flex items-center gap-4" data-region="south">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-bold shrink-0">
+                📍
+              </div>
+              <div class="flex-1 space-y-2">
+                <div class="flex justify-between text-xs font-bold">
+                  <span class="text-white text-sm">Telangana</span>
+                  <span class="text-amber-400 tabular-nums">720 users (28%)</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full" style="width: 28%"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE CHATMATE SECTION -->
+    <section id="features" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <div class="text-xs font-bold uppercase tracking-widest text-rose-400">Why Choose Us</div>
+          <h2 class="text-3xl sm:text-5xl font-black text-white">
+            Designed for <span class="text-gradient-magenta">Authentic Dating</span>
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Everything you need to spark real chemistry safely, privately, and effortlesly.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Feature Card 1: Real People -->
+          <div class="glass-card p-8 rounded-3xl space-y-5 border border-white/10 hover:border-rose-500/50 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500/20 to-purple-600/20 border border-rose-500/30 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+              👤
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-white group-hover:text-rose-300 transition-colors">Real People</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                100% verified member profiles with strict photo verification to eliminate bots, fake accounts, and catfishes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature Card 2: Exciting Features -->
+          <div class="glass-card p-8 rounded-3xl space-y-5 border border-white/10 hover:border-purple-500/50 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-magenta-600/20 border border-purple-500/30 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+              ⚡
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Exciting Features</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Crystal-clear HD video calls, active voice rooms, icebreaker chat prompts, and location-based discovery.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature Card 3: Safe & Secure -->
+          <div class="glass-card p-8 rounded-3xl space-y-5 border border-white/10 hover:border-pink-500/50 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500/20 to-rose-600/20 border border-pink-500/30 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+              🛡️
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-white group-hover:text-pink-300 transition-colors">Safe & Secure</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                End-to-end encrypted chats, screenshot prevention, 24/7 AI-driven moderation, and one-tap report/block.
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature Card 4: Premium Experience -->
+          <div class="glass-card p-8 rounded-3xl space-y-5 border border-white/10 hover:border-blue-500/50 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-600/20 border border-blue-500/30 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+              💎
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">Premium Experience</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Smooth, lag-free native Android performance, zero intrusive ads, fast loading speeds, and modern dark UI.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-20 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-12 space-y-3">
+          <div class="text-xs font-bold uppercase tracking-widest text-rose-400">Frequently Asked Questions</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Got Questions?</h2>
+          <p class="text-slate-400 text-sm">Everything you need to know about ChatMate Android app</p>
+        </div>
+
+        <div class="space-y-4">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden">
+            <button class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-lg text-white hover:text-rose-300 transition-colors">
+              <span>Is ChatMate free to download and use?</span>
+              <svg class="faq-icon w-5 h-5 text-rose-400 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+              Yes! ChatMate is completely free to download and install on your Android phone. You can create a profile, discover nearby users, and start chatting right away.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden">
+            <button class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-lg text-white hover:text-rose-300 transition-colors">
+              <span>How does profile verification work?</span>
+              <svg class="faq-icon w-5 h-5 text-rose-400 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+              Our automated system uses selfie verification to match your uploaded photo with a quick live photo check. Verified members receive a green checkmark badge on their profile.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden">
+            <button class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-lg text-white hover:text-rose-300 transition-colors">
+              <span>How do I install the APK on my Android phone?</span>
+              <svg class="faq-icon w-5 h-5 text-rose-400 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+              Simply click any "Download for Android" button on this website to get the official <code class="bg-white/10 px-2 py-0.5 rounded text-rose-300">ChatMate.apk</code> file. Once downloaded, open the file and tap "Install". If prompted, enable "Install from Unknown Sources" in your browser settings.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden">
+            <button class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-lg text-white hover:text-rose-300 transition-colors">
+              <span>Is my chat history and personal data secure?</span>
+              <svg class="faq-icon w-5 h-5 text-rose-400 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+              Absolutely. All messages and media sent on ChatMate are protected with end-to-end encryption protocols. We never share your contact details or precise location with other members.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL CALL TO ACTION SECTION -->
+    <section class="py-20 relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="glass-panel p-10 sm:p-16 rounded-[40px] border-2 border-rose-500/30 text-center relative overflow-hidden shadow-2xl shadow-rose-950/50 space-y-8">
+          
+          <!-- Background Glow Effect -->
+          <div class="absolute inset-0 bg-gradient-to-r from-rose-500/20 via-purple-600/20 to-blue-600/20 blur-2xl pointer-events-none"></div>
+
+          <div class="relative space-y-4 max-w-2xl mx-auto">
+            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+              Ready to meet <span class="text-gradient-pink-purple">amazing people?</span>
+            </h2>
+            <p class="text-slate-300 text-base sm:text-lg">
+              Download ChatMate for Android now and start discovering genuine connections near you today.
+            </p>
+          </div>
+
+          <div class="relative flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <a href="https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk"
+               download="ChatMate.apk"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="w-full sm:w-auto px-10 py-5 rounded-2xl font-black text-lg text-white bg-gradient-primary shadow-2xl shadow-rose-500/40 hover:shadow-rose-500/60 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              <span>Download for Android</span>
+            </a>
+          </div>
+
+          <div class="relative text-xs text-slate-400 font-medium">
+            Android app · Direct APK download · Fast & 100% Free
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-[#060810] py-16 text-slate-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="md:col-span-5 space-y-4">
+          <a href="#home" class="flex items-center gap-3">
+            <img src="assets/chatmate-logo.png" alt="ChatMate Logo" class="w-10 h-10 rounded-xl object-cover">
+            <span class="text-2xl font-black text-white">Chat<span class="text-gradient-magenta">Mate</span></span>
+          </a>
+          <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+            India's premium dating & live social app. Find your real spark, meet verified individuals, and start meaningful conversations.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#home" class="hover:text-rose-400 transition-colors">Home</a></li>
+            <li><a href="#features" class="hover:text-rose-400 transition-colors">Why Choose Us</a></li>
+            <li><a href="#community" class="hover:text-rose-400 transition-colors">Community Stats</a></li>
+            <li><a href="#locations" class="hover:text-rose-400 transition-colors">Users by Location</a></li>
+            <li><a href="#faq" class="hover:text-rose-400 transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Legal & Support -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Legal & Support</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" data-modal="privacy" class="hover:text-rose-400 transition-colors">Privacy Policy</a></li>
+            <li><a href="#" data-modal="terms" class="hover:text-rose-400 transition-colors">Terms of Service</a></li>
+            <li><a href="#" data-modal="contact" class="hover:text-rose-400 transition-colors">Contact Support</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
+        <p>© <span id="year"></span> ChatMate. All rights reserved.</p>
+        <p class="text-slate-300">Designed for Android Users in India 🇮🇳</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MODAL POPUP FOR PRIVACY, TERMS & CONTACT -->
+  <div id="modal-overlay" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-xl rounded-3xl border border-white/20 p-6 sm:p-8 space-y-6 relative shadow-2xl animate-float-slow">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <h3 id="modal-title" class="text-xl font-bold text-white">Modal Title</h3>
+        <button id="close-modal-btn" class="p-2 rounded-xl bg-white/10 text-slate-400 hover:text-white">
+          ✕
+        </button>
+      </div>
+
+      <div id="modal-body" class="max-h-[60vh] overflow-y-auto pr-2">
+        <!-- Content injected dynamically -->
+      </div>
+
+      <div class="pt-4 border-t border-white/10 text-right">
+        <button onclick="document.getElementById('modal-overlay').classList.add('hidden')" class="px-5 py-2.5 rounded-xl bg-white/10 text-white font-semibold text-xs hover:bg-white/20">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
 
 </body>
 </html>
