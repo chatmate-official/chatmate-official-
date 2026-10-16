@@ -18,4 +18,4 @@ I have removed the complex build system (Vite/NPM) because it was causing issues
 
 APK Download:
 The "Download" buttons are correctly linked to:
-https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk
+https://huggingface.co/Chatemate/Chatmatev.11/resolve/main/app-release.apk
