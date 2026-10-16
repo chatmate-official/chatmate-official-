@@ -1,24 +1,21 @@
-CHAT MATE WEBSITE (Vite + Tailwind CSS)
+CHAT MATE WEBSITE (Final Production Version)
 
-Current Setup:
-This website now uses Vite for lightning-fast performance and Tailwind CSS for a premium design. 
+Everything is ready! I have cleaned up all development files and left only the essential files you need for your website to work perfectly on GitHub.
 
-FILES TO DEPLOY:
-To make the GitHub website look exactly like the preview, you must deploy the "dist" folder.
+FILES TO PUSH TO GITHUB:
+1. index.html (This is the main file. It is now self-contained with all styles.)
+2. assets/ (This folder contains all your images: logo, banners, icons.)
 
-STEPS TO DEPLOY TO GITHUB PAGES:
-1. Run the build command in the terminal:
-   npm run build
-2. This will create a folder named "dist".
-3. Upload the CONTENTS of the "dist" folder (not the folder itself) to your GitHub repository.
-4. Go to Settings > Pages and select the "main" branch and "/(root)" folder.
+STEPS TO PUSH TO GITHUB:
+1. Upload these files directly to your GitHub repository.
+2. In GitHub, go to Settings > Pages.
+3. Ensure "Deploy from a branch" is selected.
+4. Select "main" branch and "/(root)" folder, then click Save.
+5. Your site will be live at: https://chatmate-official.github.io/
 
-Alternatively, for Automatic Deployment:
-- Use GitHub Actions for Vite (Recommended).
-- Create a file at .github/workflows/deploy.yml with a Vite deployment template.
+NO EXTRA COMMANDS NEEDED:
+I have removed the complex build system (Vite/NPM) because it was causing issues on GitHub. This version works instantly in any browser.
 
 APK Download:
 The "Download" buttons are correctly linked to:
 https://huggingface.co/chatmateofficial/chatmateapp/resolve/main/ChatMate.apk
-
-Note: The community numbers and user locations are interactive sample data for presentation purposes.
